@@ -1,9 +1,8 @@
 import React from "react";
 import { render } from "react-dom";
+import App from './app.jsx';
 
 render(
-  <div>
-    <p>Hello, World!</p>
-  </div>,
+  <App />,
   document.getElementById("root")
 );
