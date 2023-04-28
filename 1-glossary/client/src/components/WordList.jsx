@@ -1,6 +1,6 @@
 import WordEntry from './WordEntry.jsx';
 
-const WordList = function({ words, filter, deleteHandler, editHandler }) {
+const WordList = function({ words, filter, deleteHandler, editHandler, saveHandler }) {
   let filteredWords;
   if (filter.length === 0) {
     filteredWords = words
@@ -14,7 +14,7 @@ const WordList = function({ words, filter, deleteHandler, editHandler }) {
     <div className="list container">
       <h3>Glossary</h3>
       {filteredWords.length === 0 ? <div>No words found</div> : filteredWords.map((word) => {
-        return <WordEntry deleteHandler={deleteHandler} editHandler={editHandler} word={word} key={word.text}/>
+        return <WordEntry deleteHandler={deleteHandler} editHandler={editHandler} saveHandler={saveHandler} word={word} key={word.text}/>
       })}
     </div>
   )

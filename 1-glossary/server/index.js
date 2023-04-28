@@ -28,15 +28,31 @@ app.post('/words', (req, res) => {
   })
 })
 
-// GET route
+// GET route - 1. Retrive results for currentPage
 app.get('/words', (req, res) => {
   console.log('Server received GET');
-
+  // Get the current Page
+  const currentPage = req.query.currentPage
   // Retrieve data from DB
-  dbMethods.getAll()
+  dbMethods.getOnePage(currentPage)
   .then((data) => {
     // Send back response
     res.status(201).send(data);
+  })
+  .catch((err) => {
+    res.status(400).send(err);
+  })
+})
+
+// GET route - 2. Retrive max page number in DB
+
+app.get('/page', (req, res) => {
+  console.log('Server received GET pagenumber');
+  // Retrieve data from DB
+  dbMethods.getPageNumber()
+  .then((pageNumber) => {
+    // Send back response
+    res.status(201).json(pageNumber);
   })
   .catch((err) => {
     res.status(400).send(err);

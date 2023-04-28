@@ -17,6 +17,17 @@ dbMethods = {
   getAll: function() {
     return glossary.find({}).exec()
   },
+
+  getOnePage: function (pageNumber) {
+    pageNumber = pageNumber || 1;
+    const skipNumber = 10 * (pageNumber - 1);
+    return glossary.find({}).sort({'text': 1}).skip(skipNumber).limit(10).exec()
+  },
+
+  getPageNumber: function () {
+    return glossary.count({}).exec().then((count) => (Math.ceil(count / 10)))
+  },
+
   add: function(words) {
     return glossary.create(words)
   },

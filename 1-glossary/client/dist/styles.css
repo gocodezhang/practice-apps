@@ -97,3 +97,24 @@ main {
   top: 10px;
   left: 5%;
 }
+
+.entry input {
+  width: 60%;
+  font-size: 14px;
+  border: none;
+}
+
+/* ------------ Pagination ----------------- */
+
+.page {
+  list-style: none;
+  display: flex;
+}
+
+.page li {
+  margin: 5px;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  text-align: center;
+}
