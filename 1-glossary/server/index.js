@@ -108,5 +108,6 @@ app.delete('/words', (req, res) => {
 
 /* ---------------- Server listens ---------------- */
 
-app.listen(process.env.PORT);
-console.log(`Listening at http://localhost:${process.env.PORT}`);
+const PORT = procees.env.PORT || 3000;
+app.listen(PORT);
+console.log(`Listening at http://localhost:${PORT}`);
